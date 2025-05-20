@@ -27,23 +27,6 @@ app.get("/connected", async (req, res) => {
         console.log('Token:', oauthClient.getToken());
         const token = oauthClient.getToken();
 
-        // res.send(`
-        //     <html>
-        //         <body>
-        //             <script>
-        //                 window.opener.postMessage(
-        //                     {
-        //                         type: "quickbooks-auth",
-        //                         params: ${JSON.stringify(token)}
-        //                     },
-        //                     "http://localhost:3000"
-        //                 );
-        //                 window.close();
-        //             </script>
-        //             <p>Authentication successful. You can close this window.</p>
-        //         </body>
-        //     </html>
-        // `)
         res.send(`
             <html>
                 <body>
