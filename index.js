@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const OAuthClient = require("intuit-oauth");
 const cors = require('cors');
@@ -7,10 +8,10 @@ app.use(express.json());
 app.use(cors());
 
 const oauthClient = new OAuthClient({
-    clientId: "ABrVfe0EpHI7QFpbwwMWdGqgsXSKxNMzC0GPMHNGkhQ7KO9nlM",
-    clientSecret: "IUVvoGRrfWiBcu7ZDfvQPeH7IWCitIiiQfd2VhmX",
-    environment: "sandbox",
-    redirectUri: "https://calm-flower-0b121cb1e-integrations.westus2.1.azurestaticapps.net/integrations-connect",
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    environment: process.env.ENVIRONMENT,
+    redirectUri: process.env.REDIRECT_URI,
 });
 
 app.post("/exchange-code", async (req, res) => {
