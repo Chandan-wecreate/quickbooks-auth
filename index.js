@@ -10,7 +10,7 @@ const oauthClient = new OAuthClient({
     clientId: "ABrVfe0EpHI7QFpbwwMWdGqgsXSKxNMzC0GPMHNGkhQ7KO9nlM",
     clientSecret: "IUVvoGRrfWiBcu7ZDfvQPeH7IWCitIiiQfd2VhmX",
     environment: "sandbox",
-    redirectUri: "http://localhost:3000/integrations-connect",
+    redirectUri: "https://calm-flower-0b121cb1e-integrations.westus2.1.azurestaticapps.net/integrations-connect",
 });
 
 app.post("/exchange-code", async (req, res) => {
@@ -21,7 +21,7 @@ app.post("/exchange-code", async (req, res) => {
     }
 
     // Build the redirect URL as QuickBooks expects
-    const redirectUrl = `http://localhost:3000/integrations-connect?code=${encodeURIComponent(code)}${realmId ? `&realmId=${encodeURIComponent(realmId)}` : ''}`;
+    const redirectUrl = `https://calm-flower-0b121cb1e-integrations.westus2.1.azurestaticapps.net/integrations-connect?code=${encodeURIComponent(code)}${realmId ? `&realmId=${encodeURIComponent(realmId)}` : ''}`;
 
     try {
         await oauthClient.createToken(redirectUrl);
